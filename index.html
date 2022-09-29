@@ -1,0 +1,230 @@
+1<!DOCTYPE html>
+<html lang="en">
+<!--head section, Importing assets and adjusting meta rules-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RENT A CAR</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<!--beginning of body content -->
+<!--Referencing the main application, using a simple navigation bar stylises in css. Vue application shows account if logged in on navbar-->
+<body>
+    <BaseLayout id="app">
+        <nav >
+            <div class="container">
+                <div class="brand">
+                   <a href="index.html">
+                     <img src="./images/Logo.png" alt="">
+                   </a>
+                </div>
+                <ul class="nav-menu">
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#aboutus">About us</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                    <li v-if="!LoggedUserInfo">
+                        <a href="login.html">Login/Registration</a>
+                    </li>
+                    <li v-if="LoggedUserInfo">
+                        <input name="show_sidebar" type="checkbox" v-on:change="showHideSidebar" id="show_account"
+                            style="display:none">
+                        <label for="show_account">
+                            <i class="fa-solid fa-user"></i> {{LoggedUserInfo.name}}
+                        </label>
+                        <div :class="{sidebar:true,hide:!showSideMenu,show:showSideMenu}">
+                            <div class="user-info">
+                                <p>NAME : {{ LoggedUserInfo.name }}</p>
+                                <p>EMAIL : {{ LoggedUserInfo.email }}</p>
+                                <p>ACCOUNT TYPE : {{ LoggedUserInfo.account_type==1?'Lessor':'Renter' }}</p>
+                            </div>
+                            <ul>
+                                <li><a href=""> Settings & Privacy </a></li>
+                                <li><a href=""> Help & support </a></li>
+                                <li><a href=""> Display & Accessebility </a></li>
+                                <li><a href=""> Dark mode </a></li>
+                                <li><a href=""> Give feedback </a></li>
+                                <li @click="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+       
+        <!--simple banner with an id of "home"-->
+
+        <section class="banner" id="home">
+
+            <div class="text">
+                <h2>
+                    Travelling made for you ! <br>
+                    For more information go to the <br>
+                    "About us" section
+                </h2>
+                <p>Pricing made easy and affordable. Services acessible, efficient and easy to use. 
+                    Go from being a lessor to a lessee in a couple of easy steps. For more information
+                    and additional settings navigate to "Account" page on the menu bar.</p>
+            </div>
+
+
+        </section>
+
+        <!--html/css content Body section -->
+
+        <section class="service-secition">
+            <div class="title">
+                <h2>Driving made easy by you!</h2>
+                <p>Made by drivers for drivers</p>
+            </div>
+            <div class="services">
+                <div class="service">
+                    <img src="./images/LeaseCar.png" alt="">
+                    <div class="text">
+                        <h4>Lease a car</h4>
+                        <p>Lease out your car to earn some extra cash on the go! For any
+                            arising issues or queries please visit the "Contact us" page
+							and we'll be with you shortly.</p>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="./images/RentCar.png" alt="">
+                    <div class="text">
+                        <h4>Rent a car</h4>
+                        <p>Rent a car wherever & whenever you like! Term and conditions apply!</p>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="./images/Icon2.png" alt="">
+                    <div class="text">
+                        <h4>Inquires</h4>
+                        <p>Call our 24/7 phone line "(03) 9244 6100" and have one of our representatives 
+						answer any and all of your questions!</p> 
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--aboutus content with button href to login.html file-->
+
+        <section class="about-us-section" id="aboutus">
+            <div class="main-card">
+                <div class="about-us-card">
+                    <h2>About us</h2>
+                    <p>We're a small private company owned and operated in Melbourne Victoria.</p>
+					<p>We aim for simplicity and effecacy.</p>
+                    <p>We want to provide affordable services to all of ours customers, new and old.</p>
+                    <p>We will strive to satisfy each and everyone of you!</p>
+                    <p>Our optimal goal is to support visitors, freelancers and contractors with quick and affordable services such as dedicated car leasing and renting.
+                    </p>
+                    <p>If you want to earn some extra cash now is your time!</p>
+                </div>
+                <div class="register-login">
+                    <h2>To start leasing or renting cars register/login from simply clicking on "Star now" button down below!</h2>
+                    <a href="login.html"><button>START NOW</button></a>
+                </div>
+            </div>
+
+            <!--Google Maps with Deakin address using iframe-->
+
+            <div class="mapouter">
+                <div class="gmap_canvas"><iframe width="786" height="500" id="gmap_canvas"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.4671804923237!2d145.11489840000002!3d-37.8493578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad6405e09798c75%3A0x8b743ee115d710f6!2s221%20Burwood%20Hwy%2C%20Burwood%20VIC%203125!5e0!3m2!1sen!2sau!4v1664157776172!5m2!1sen!2sau"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        <br><a href="https://www.embedgooglemap.net">google map html widget</a></div>
+            </div>
+        </section>
+
+        <!--website content with html css-->
+
+        <section class="safety">
+            <div class="main-card">
+                <div class="sub-card">
+                    <img src="./images/RC98.png" alt="image not found">
+                </div>
+                <div class="sub-card">
+                    <h2>
+                        Feel safe using our <br>
+                        services and cars.<br>
+                        Start Now !
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+        <!--Contact body section -->
+
+        <section class="contact-section" id="contact">
+            <div class="main-card">
+                <div class="text">
+                    <h6>More Inquires ?</h6>
+                    <h2>Contact us</h2>
+                    <p>Please provide your details , such as name,email,address and post your request.
+						we'll be sure to get back to you as soon as possible</p>
+                    <p>Additional links of social media provided bellow</p>
+                </div>
+                
+                <!-- if sent successfuly Greets the sender-->   
+
+                <div class="form">
+                    <form v-on:submit="sendEmail">
+                        <p class="alert-success" v-if="contactMsg">Hi {{this.$options.filters.capitalize(contactMsg.name)}} ! {{ contactMsg.message }}</p>
+                        <input type="text" v-model="contactForm.name" placeholder="Enter your name" required>
+                        <input type="text" v-model="contactForm.email" placeholder="Enter a valid email address"
+                            required>
+                        <textarea rows="5" v-model="contactForm.message" placeholder="Enter your message"
+                            required></textarea>
+                        <button>Submit</button>
+                    </form>
+
+                    <!-- Social media aka my github account-->
+
+                    <ul class="icon">
+                        <li><a href="https://github.com/221152992/SIT120-Assignments"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="https://github.com/221152992/SIT120-Assignments"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="https://github.com/221152992/SIT120-Assignments"><i class="fa-brands fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+		
+		<section>
+			<div>
+				<a href="#home"></a>
+			</div>
+		</section>
+
+        <!--footer section with important links, logo and text-->
+
+        <footer>
+            <div class="main-card">
+                <img src="./images/Logo.png" alt="">
+                <div>
+                    <p>Copyright &copy;2022 Direct , Inc</p>
+                    <ul>
+                        <li><a href="">Ligalities</a></li>
+                        <li><a href="">Permissions</a></li>
+                        <li><a href="">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        
+    </BaseLayout>
+    <!--End of body content -->
+<!--loading scripts at the end of body to make html more efficient-->
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>

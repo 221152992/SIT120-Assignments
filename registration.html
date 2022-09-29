@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN TO RENT OR LEASE A CAR</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body class="login" id="app">
+    <nav>
+        <div class="container">
+            <div class="brand">
+                <img src="./images/Logo.png" alt="">
+            </div>
+            <ul class="nav-menu">
+                <li>
+                    <a href="index.html#home">Home</a>
+                </li>
+                <li>
+                    <a href="index.html#aboutus">About us</a>
+                </li>
+                <li>
+                    <a href="index.html#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="login">
+        <div class="login-card" :class="{shake:shakeDisabled}">
+            <h3>Create new account</h3>
+            <p :class="registrationMsg.class" v-if="registrationMsg">{{ registrationMsg.message }}</p>
+
+            <form @submit="register">
+                <input type="text" v-model="registrationForm.name" placeholder="Enter Your Name">
+                <input type="email" v-model="registrationForm.email" placeholder="Enter Your Email">
+                <input type="password" v-model="registrationForm.password" placeholder="Enter Your Password">
+                <input type="password" v-model="registrationForm.confirm_password" placeholder="Re-Type Your password">
+                <select name="" v-model="registrationForm.account_type" id="">
+                    <option value="" selected>Select account type</option>
+                    <option value="1">Lessor</option>
+                    <option value="2">Renter</option>
+                </select>
+
+                <button>Sign up</button>
+            </form>
+        </div>
+    </section>
+
+
+    <p class="regiter-link">Already Have an account?  <a href="login.html">Login</a></p>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
