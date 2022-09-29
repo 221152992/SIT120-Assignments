@@ -4,7 +4,7 @@ body {
   left: 0;
   right: 0;
 }
-
+/*setting up fonts, and stylising the navbar */
 h2 {
   font-family: Montserrat;
 }
@@ -117,7 +117,7 @@ nav .nav-menu .sidebar ul :last-child i {
           transform: rotate(180deg);
   margin-right: 10px;
 }
-
+/*banner, and content in container */
 .container {
   width: 80%;
   margin: 0px auto;
@@ -368,7 +368,7 @@ nav .nav-menu .sidebar ul :last-child i {
 .contact-section .main-card .form .icon li i {
   color: #DADD2C;
 }
-
+/* footer section*/
 footer {
   background-color: #171717;
 }
@@ -404,7 +404,7 @@ footer .main-card ul li a {
   text-decoration: none;
   color: white;
 }
-
+/* login/registrer page*/
 .login {
   text-align: center;
   font-family: Montserrat;
@@ -460,7 +460,7 @@ footer .main-card ul li a {
   margin-top: 0px;
   font-weight: 700;
 }
-
+/*animations */
 .alert-success {
   color: #155724;
   background-color: #d4edda;
