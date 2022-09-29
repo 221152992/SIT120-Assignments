@@ -117,7 +117,6 @@ const app = Vue.createApp({
                 return
             }
 
-            //
 
             const allUserAccount = Accounts?Accounts:[];
             allUserAccount.push(data);
