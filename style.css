@@ -117,7 +117,7 @@ nav .nav-menu .sidebar ul :last-child i {
           transform: rotate(180deg);
   margin-right: 10px;
 }
-/*banner, and content in container */
+/*banner, and body content in container */
 .container {
   width: 80%;
   margin: 0px auto;
@@ -341,7 +341,6 @@ nav .nav-menu .sidebar ul :last-child i {
 }
 
 .contact-section .main-card .form ::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
   color: #fff;
   font-family: arial;
 }
